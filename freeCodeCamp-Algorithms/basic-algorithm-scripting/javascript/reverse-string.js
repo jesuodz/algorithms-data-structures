@@ -17,10 +17,10 @@ function reverseString( str ) {
     return reverse.join('');
 }
 
-reverseString("hello"); // should return a string.
-reverseString("hello"); // should become "olleh".
-reverseString("Howdy"); // should become "ydwoH".
-reverseString("Greetings from Earth"); // should return "htraE morf sgniteerG"
+console.log( reverseString( "hello" )); // should return a string.
+console.log( reverseString( "hello" )); // should become "olleh".
+console.log( reverseString( "Howdy" )); // should become "ydwoH".
+console.log( reverseString( "Greetings from Earth" )); // should return "htraE morf sgniteerG"
 
 /*
 

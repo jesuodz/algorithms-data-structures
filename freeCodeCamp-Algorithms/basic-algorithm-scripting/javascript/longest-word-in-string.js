@@ -22,10 +22,10 @@ function findLongestWord( str ) {
     return longest();
 }
 
-findLongestWord("The quick brown fox jumped over the lazy dog"); // should return a number.
-findLongestWord("The quick brown fox jumped over the lazy dog"); // should return 6.
-findLongestWord("May the force be with you"); // should return 5.
-findLongestWord("Google do a barrel roll"); // should return 6.
+console.log( findLongestWord("The quick brown fox jumped over the lazy dog" )); // should return a number.
+console.log( findLongestWord("The quick brown fox jumped over the lazy dog" )); // should return 6.
+console.log( findLongestWord("May the force be with you" )); // should return 5.
+console.log( findLongestWord("Google do a barrel roll" )); // should return 6.
 
 /*
 
