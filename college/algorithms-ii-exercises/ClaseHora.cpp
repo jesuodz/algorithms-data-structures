@@ -8,8 +8,8 @@ using namespace std;
 class Hora {
 	private:
 		int hora;
-		int minut;
-		int segund;
+		int minuto;
+		int segundo;
 		
 	public:
 		Hora(){ inicializar( 0, 0, 0 ); }
@@ -37,17 +37,17 @@ Hora::Hora( int h, int m, int s ) {
 
 void Hora::inicializar( int h, int m, int s) {
 	if ( s >= 60 ) {
-		segund = s % 60;
+		segundo = s % 60;
 		m = m + s / 60;
 	} else {
-		segund = s;
+		segundo = s;
 	}
 
 	if ( m > 60 ) {
-		minut = m % 60;
+		minuto = m % 60;
 		h = h + m / 60;
 	} else {
-		minut = m;
+		minuto = m;
 	}
 	hora = h;
 }
@@ -57,44 +57,44 @@ void Hora::cargar_hora() {
 	cin >> hora;
 
 	do {
-		cout << " Ingrese el minuto " << endl;
-		cin >> minut;
+		cout << "Ingrese el minuto: " << endl;
+		cin >> minuto;
 
-		if ( minut<0 || minut>59 ) {
-		    cout << " Valor invalido: " << endl;
+		if ( minuto < 0 || minuto > 59 ) {
+		    cout << "Valor invalido" << endl;
         }
 
-	} while (minut < 0 || minut > 60 );
+	} while ( minuto < 0 || minuto > 60 );
 	
 	do {
-		cout << " Ingrese el segundon " << endl;
-		cin >> segund;
+		cout << "Ingrese el segundo: " << endl;
+		cin >> segundo;
 		
-		if ( segund < 0 || segund > 59 ) {
-            cout << " Valor invalido: " << endl;
+		if ( segundo < 0 || segundo > 59 ) {
+            cout << "Valor invalido" << endl;
         }
         
-	} while( segund < 0 || segund > 59 );
+	} while ( segundo < 0 || segundo > 59 );
 }
 
 void Hora::mostrar_hora() {
 	cout << " La hora es: " << hora << endl;
-	cout << " Los minutos son: " << minut << endl;
-	cout << " Los segundos son: " << segund << endl;
+	cout << " Los minutos son: " << minuto << endl;
+	cout << " Los segundos son: " << segundo << endl;
 }
 
 int main() {
     Hora h1, h2 ( 5 ), h3( 4, 20 ), h4( 4, 20, 50 ), h5( 4, 70, 80 );
-    //h1.cargar hora ();
-    cout << endl<<"h1: " << endl;
+    h1.cargar_hora ();
+    cout << endl <<"h1: " << endl;
     h1 .mostrar_hora();
-    cout << endl<<"h2: " << endl;
+    cout << endl <<"h2: " << endl;
     h2.mostrar_hora();
-    cout << endl<<"h3: " << endl;
+    cout << endl <<"h3: " << endl;
     h3.mostrar_hora();
-    cout << endl<<"h4: " << endl;
+    cout << endl <<"h4: " << endl;
     h4.mostrar_hora();
-    cout << endl<<"h5: " << endl;
+    cout << endl <<"h5: " << endl;
     h5.mostrar_hora();
     
     system("PAUSE");
