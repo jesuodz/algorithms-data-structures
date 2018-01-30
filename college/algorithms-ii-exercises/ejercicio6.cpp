@@ -35,7 +35,7 @@ void Vivienda::printAttrViv() {
 }
 
 void Vivienda::actTelf() {
-    cout << "Actual numero de telefono: " << telf << endl;
+    cout << "Numero de telefono actual: " << telf << endl;
     cout << "Nuevo numero de telefono: "; cin >> telf;
     cout << "El numero de telefono ha sido actualizado correctamente!" << endl;
 }
@@ -64,7 +64,7 @@ void Residencia::printAttrRes() {
 }
 
 void Residencia::actDim() {
-    cout << "Actual dimension: " << mt2 << endl;
+    cout << "Dimension actual: " << mt2 << endl;
     cout << "Nueva dimension: "; cin >> mt2;
     cout << "Las dimensiones ha sido actualizado correctamente!" << endl;
 }

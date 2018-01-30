@@ -86,15 +86,15 @@ void Hora::mostrar_hora() {
 int main() {
     Hora h1, h2 ( 5 ), h3( 4, 20 ), h4( 4, 20, 50 ), h5( 4, 70, 80 );
     h1.cargar_hora ();
-    cout << endl <<"h1: " << endl;
+    cout << endl << "h1: " << endl;
     h1 .mostrar_hora();
-    cout << endl <<"h2: " << endl;
+    cout << endl << "h2: " << endl;
     h2.mostrar_hora();
-    cout << endl <<"h3: " << endl;
+    cout << endl << "h3: " << endl;
     h3.mostrar_hora();
-    cout << endl <<"h4: " << endl;
+    cout << endl << "h4: " << endl;
     h4.mostrar_hora();
-    cout << endl <<"h5: " << endl;
+    cout << endl << "h5: " << endl;
     h5.mostrar_hora();
     
     system("PAUSE");
