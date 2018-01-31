@@ -12,17 +12,17 @@ using namespace std;
 
 class Vivienda {
     protected:
-        char direccion[ n ];
+        char direccion[n];
         int nPortal;
         int telf;
     public:
         Vivienda() {}
-        Vivienda( int nP, char d[ n ], int t );
+        Vivienda( int nP, char d[n], int t );
         void printAttrViv();
         void actTelf();
 };
 
-Vivienda::Vivienda( int nP, char d[ n ], int t ) {
+Vivienda::Vivienda( int nP, char d[n], int t ) {
     nPortal = nP;
     strcpy( direccion, d );
     telf = t;
@@ -46,12 +46,12 @@ class Residencia:public Vivienda {
         int numHab;
     public:
         Residencia() {}
-        Residencia( int nP, char d[ n ], int t, int m2, int nH );
+        Residencia( int nP, char d[n], int t, int m2, int nH );
         void printAttrRes();
-        void actDim();
+        void actualizar_dimensiones();
 };
 
-Residencia::Residencia( int nP, char d[ n ], int t, int m2, int nH )
+Residencia::Residencia( int nP, char d[n], int t, int m2, int nH )
         :   Vivienda( nP, d, t ) {
             mt2 = m2;
             numHab = nH;
@@ -63,7 +63,7 @@ void Residencia::printAttrRes() {
     cout << "Dimensiones: " << mt2 << "m2" << endl;
 }
 
-void Residencia::actDim() {
+void Residencia::actualizar_dimensiones() {
     cout << "Dimension actual: " << mt2 << endl;
     cout << "Nueva dimension: "; cin >> mt2;
     cout << "Las dimensiones ha sido actualizado correctamente!" << endl;
@@ -89,14 +89,14 @@ void Departamento::printAttrDep() {
 
 class Casa: public Residencia {
     protected:
-        char sector[ n ];
+        char sector[n];
     public:
         Casa() {}
-        Casa(int nP, char d[ n ], int t, int m2, int nH, char s[ n ]);
+        Casa( int nP, char d[n], int t, int m2, int nH, char s[n] );
         void printAttrCa();
 };
 
-Casa::Casa(int nP, char d[ n ], int t, int m2, int nH, char s[ n ])
+Casa::Casa( int nP, char d[n], int t, int m2, int nH, char s[n] )
     : Residencia( nP, d, t, m2, nH ) {
         strcpy( sector, s );
     }
@@ -109,14 +109,14 @@ void Casa::printAttrCa() {
 // Desde aqui, edificios comerciales
 class Comercial: public Vivienda {
     protected:
-        char tipo[ n ];
+        char tipo[n];
 public:
     Comercial() {}
-    Comercial( int nP, char d[ n ], int t, char tp[ n ] );
+    Comercial( int nP, char d[n], int t, char tp[n] );
     void printAttrCom();
 };
 
-Comercial::Comercial( int nP, char d[ n ], int t, char tp[ n ] )
+Comercial::Comercial( int nP, char d[n], int t, char tp[n] )
         : Vivienda( nP, d, t ) {
         strcpy( tipo, tp );
         }
@@ -128,15 +128,15 @@ void Comercial::printAttrCom() {
 
 class Industrial: public Comercial {
     protected:
-        char actividad[ n ];
+        char actividad[n];
     public:
         Industrial() {}
-        Industrial( int nP, char d[ n ], int t, char tp[ n ], char act[ n ]);
+        Industrial( int nP, char d[n], int t, char tp[n], char act[n]);
         void printAttrInd();
         void newAct();
 };
 
-Industrial::Industrial( int nP, char d[ n ], int t, char tp[ n ], char act[ n ])
+Industrial::Industrial( int nP, char d[n], int t, char tp[n], char act[n])
         : Comercial( nP, d, t, tp ) {
         strcpy(actividad, act);
         }
@@ -154,14 +154,14 @@ void Industrial::newAct() {
 
 class Oficina:public Comercial {
     protected:
-        char name[ n ];
+        char name[n];
 public:
     Oficina() {}
-    Oficina( int nP, char d[ n ], int t, char tp[ n ], char tS[ n ]);
+    Oficina( int nP, char d[n], int t, char tp[n], char tS[n]);
     void printAttrOfi();
 };
 
-Oficina::Oficina( int nP, char d[ n ], int t, char tp[ n ], char tS[ n ])
+Oficina::Oficina( int nP, char d[n], int t, char tp[n], char tS[n])
     : Comercial( nP, d, t, tp ) {
         strcpy(name, tS);
     }
@@ -172,17 +172,17 @@ void Oficina::printAttrOfi() {
 }
 
 main() {
-    /*
+    
     // PARA VIVIENDA
-    Vivienda vivienda( 2, "Carupano", 0 );
-    vivienda.printAttrViv();
-    cout << endl;
-
+    // Vivienda vivienda( 2, "Carupano", 0 );
+    // vivienda.printAttrViv();
+    // cout << endl;
+    
     // PARA RESIDENCIA
     Residencia residencia( 4, "Cumana", 0, 5, 120 );
     residencia.printAttrRes();
     cout << endl;
-
+    /*
     // PARA DEPARTAMENTO
     Departamento departamento( 10, "Carupano", 3335689, 7, 70, 2 );
     departamento.printAttrDep();
@@ -191,7 +191,7 @@ main() {
     // PARA CASA
     Casa casa( 10, "Carupano", 3335689, 7, 70, "El Muco" );
     casa.printAttrCa();
-    casa.actDim();
+    casa.actualizar_dimensiones();
 
     cout << endl;
     // PARA EDIFICIO COMERCIAL
