@@ -8,7 +8,7 @@ const int MAX = 5;
 
 template < class T >
 class queue {
-    private:
+    protected:
         T elements[MAX];
         int front;
         int back;
