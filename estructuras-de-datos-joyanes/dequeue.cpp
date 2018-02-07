@@ -179,3 +179,8 @@ int main() {
         std::cout << "Alguna excepcion ocurrio." << std::endl;
     }
 }
+
+/*
+FUENTE:
+http://www.sourcetricks.com/2011/06/c-deque.html
+*/
