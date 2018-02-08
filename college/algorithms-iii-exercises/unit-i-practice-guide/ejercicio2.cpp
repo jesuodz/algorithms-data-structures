@@ -94,7 +94,7 @@ int main() {
                 {
                     int popped_value = S.pop();
 
-                    if ( popped_value >= 0 ){
+                    if ( popped_value >= 0 ) {
                         std::cout << "\nValor eliminado: " << popped_value << "\n";
                     }
                 
