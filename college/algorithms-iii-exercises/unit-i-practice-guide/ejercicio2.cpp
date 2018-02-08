@@ -1,8 +1,9 @@
 # include <iostream>
 # include <stdlib.h>
 
-// Escriba un programa que cree una pila de números enteros. Se debe codificar funciones que realicen las
-// operaciones de añadir a la pila, eliminar y mostrar sus elementos.
+// Llenar una pila con números leídos por teclado. 
+// A continuación, vaciar la pila de tal forma que se muestren
+// solo los valores positivos.
 
 # define MAX 5
 
@@ -45,6 +46,7 @@ int Stack::pop() {
     if ( !stack_empty() ) {
         e = elements[top];
         top--;
+
         return e;
     } else {
         std::cout << "Underflow. Es imposible eliminar.";
@@ -89,8 +91,15 @@ int main() {
                 S.push( value );
                 break;
             case 2:
-                std::cout << "\nValor eliminado: " << S.pop() << "\n";
-                break;
+                {
+                    int popped_value = S.pop();
+
+                    if ( popped_value >= 0 ){
+                        std::cout << "\nValor eliminado: " << popped_value << "\n";
+                    }
+                
+                    break;
+                }
             case 3:
                 std::cout << "\nElementos en la pila:\n"; 
                 S.list_stack();
@@ -108,3 +117,10 @@ int main() {
         
     } while ( option != 3 );
 }
+
+/*
+
+Why brackets in lines 94 ~ 99?:
+https://stackoverflow.com/questions/23599708/how-do-i-resolve-this-error-jump-to-case-label-crosses-initialization/23599822
+
+*/
