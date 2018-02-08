@@ -89,7 +89,7 @@ int Deque::pop_front() {
         throw new DequeEmptyException();
     }
 
-    //  Data in the front node
+    //  Dato en el primer nodo
     int ret = front -> data;
 
     // Borra el nodo del frente y arregla los enlaces
@@ -110,7 +110,7 @@ int Deque::pop_back() {
         throw new DequeEmptyException();
     }
 
-    //  Data in the back node
+    //  Datos en el ultimo nodo
     int ret = back -> data;
 
     // Borra el nodo del frente y arregla los enlaces
@@ -176,7 +176,7 @@ int main() {
         std::cout << q.pop_front() << std::endl;
         std::cout << q.pop_front() << std::endl;
     } catch (...) {
-        std::cout << "Alguna excepcion ocurrio." << std::endl;
+        std::cout << "Ocurrio una excepcion." << std::endl;
     }
 }
 
