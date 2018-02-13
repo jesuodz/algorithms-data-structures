@@ -1,5 +1,9 @@
 # include <iostream>
 
+/*
+Generic linked list
+*/
+
 template <typename T>
 struct Node {
     T data; // The element of interest
