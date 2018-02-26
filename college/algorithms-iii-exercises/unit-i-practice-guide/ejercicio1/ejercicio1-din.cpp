@@ -8,13 +8,13 @@ class Stack {
     struct Node {
         int data;
         Node* next;
-        Node( int d );
+        Node( int n );
     };
 
     Node* top;
     public:
         Stack();
-        ~Stack();
+        void delete_stack();
         bool is_empty();
         void push( int e );
         int pop();
@@ -22,7 +22,7 @@ class Stack {
 };
 
 // Constructor del nodo
-Stack::Node::Node( int n ): data( n ), next( nullptr ) {}
+Stack::Node::Node( int num ): data( num ), next( nullptr ) {}
 
 // Constructor de la pila
 Stack::Stack(): top( nullptr ) {}
@@ -43,26 +43,29 @@ void Stack::push( int e ) {
         top = new_node;
     }
 
-    std::cout << "\nValor: " << new_node -> data << " Tope: " << top << '\n';
+    std::cout << "\nValor agregado exitosamente!\n";
 }
 
 int Stack::pop() {
     if ( !is_empty() ) {
-        int data = top -> data;
+        int value = top -> data;
         Node* old_node = top;
         top = top -> next;
         delete old_node;
 
-        std::cout << "\n Borrado: " << data << '\n';
+        std::cout << "\nValor borrado: " << value << '\n';
     } else {
         std::cout << "Underflow. Es imposible eliminar.";
     }
 }
 
 void Stack::list_stack() {
+
+    std::cout << "\nElementos en la pila:\n"; 
+
     if ( !is_empty() ) {
         for ( Node* i = top; i != nullptr; i = i -> next ) {
-            std::cout << i -> data;
+            std::cout << i -> data << " ";
         }
         std::cout << '\n';
     } else {
@@ -70,7 +73,7 @@ void Stack::list_stack() {
     }
 }
 
-Stack::~Stack() {
+void Stack::delete_stack() {
     Node* to_delete = top;
     Node* del_node;
 
@@ -111,7 +114,6 @@ int main() {
                 std::cout << "\nValor eliminado: " << S.pop() << "\n";
                 break;
             case 3:
-                std::cout << "\nElementos en la pila:\n"; 
                 S.list_stack();
                 break;
             case 4:
@@ -121,10 +123,8 @@ int main() {
                 std::cout << "\nOpcion invalida.\n";
                 break;
         }
-
-        system( "PAUSE" );
-        system( "CLS" );
         
     } while ( option != 3 );
-    delete &S;
+
+    S.delete_stack();
 }
