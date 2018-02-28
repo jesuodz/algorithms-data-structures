@@ -93,7 +93,6 @@ int main() {
                 std::cout << "\nValor eliminado: " << S.pop() << "\n";
                 break;
             case 3:
-                std::cout << "\nElementos en la pila:\n"; 
                 S.list_stack();
                 break;
             case 4:
@@ -103,9 +102,6 @@ int main() {
                 std::cout << "\nOpcion invalida.\n";
                 break;
         }
-
-        system( "PAUSE" );
-        system( "CLS" );
         
     } while ( option != 3 );
 }
