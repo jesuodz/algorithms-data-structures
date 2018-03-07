@@ -3,7 +3,7 @@
 
 using namespace std;
 
-typedef int* Tipoelemento;
+typedef int Tipoelemento;
 class Nodo {
 	protected:
         Tipoelemento dato;
@@ -20,13 +20,27 @@ class Nodo {
             dcho = ramaDcho;
         }
 
-        Tipoelemento valorNodo() { return dato; }
-        Nodo* subArbolIzdo() { return izdo; }
-        Nodo* subArbolDcho() { return dcho; }
+        Tipoelemento valorNodo() {
+            return dato;
+        }
+        Nodo* subArbolIzdo() {
+            return izdo;
+        }
+        Nodo* subArbolDcho() {
+            return dcho;
+        }
 
-        void nuevoValor( Tipoelemento d ) { dato = d; }
-        void ramaIzdo( Nodo* n ) { izdo = n; }
-        void ramaDcho( Nodo* n ) { dcho = n; }
+        void nuevoValor( Tipoelemento d ) {
+            dato = d;
+        }
+        void ramaIzdo( Nodo* n ) {
+            izdo = n;
+        }
+        void ramaDcho( Nodo* n ) {
+            dcho = n;
+        }
 
-        void visitar() { cout << dato << " "; }
+        void visitar() {
+            cout << dato << " ";
+        }
 };

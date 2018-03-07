@@ -52,6 +52,18 @@ class ArbolBinario {
             return new Nodo( ramaIzda, dato, ramaDcha );
         }
 
+        Nodo* buscar( Nodo* raizSub, Tipoelemento  buscado ) {
+            if( raizSub == NULL ) {
+                return NULL;
+            } else if( buscado == raizSub->valorNodo()) {
+                return raizSub;
+            } else if( buscado < raizSub->valorNodo()) {
+                buscar( raizSub -> subArbolIzdo(), buscado );
+            } else {
+                buscar( raizSub -> subArbolDcho(), buscado );
+            }
+        }
+
         void preorden( Nodo *r ) {
             if ( r != NULL ) {
                 r -> visitar();
