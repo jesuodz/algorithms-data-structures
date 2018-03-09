@@ -55,9 +55,9 @@ class ArbolBinario {
         Nodo* buscar( Nodo* raizSub, Tipoelemento  buscado ) {
             if( raizSub == NULL ) {
                 return NULL;
-            } else if( buscado == raizSub->valorNodo()) {
+            } else if( buscado == raizSub -> valorNodo()) {
                 return raizSub;
-            } else if( buscado < raizSub->valorNodo()) {
+            } else if( buscado < raizSub -> valorNodo()) {
                 buscar( raizSub -> subArbolIzdo(), buscado );
             } else {
                 buscar( raizSub -> subArbolDcho(), buscado );
@@ -86,5 +86,22 @@ class ArbolBinario {
                 postorden( r -> subArbolDcho());
                 r -> visitar();
             }
+        }
+
+        int contar_nodos( Nodo *r ) {
+            // ADAPTADO DE: http://www.cplusplus.com/forum/general/101322/
+
+            // int contador = 1;
+
+            // if ( r -> subArbolIzdo() ) {
+            //     contador += contar_nodos( r -> subArbolIzdo());
+            // }
+            // if ( r -> subArbolDcho()) {
+            //     contador += contar_nodos( r -> subArbolDcho());
+            // }
+
+            // return contador;
+            return ( r -> subArbolIzdo() ? contar_nodos( r -> subArbolIzdo() ) : 0 ) + 
+                    ( r -> subArbolDcho() ? contar_nodos( r -> subArbolDcho() ) : 0 ) + 1;
         }
 };

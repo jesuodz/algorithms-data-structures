@@ -34,6 +34,8 @@ int main() {
     } else {
         cout << "Dato no encontrado";
     } 
-    
+
+    cout << "\nNumero de nodos en el arbol:\n" << a.contar_nodos( n1 );
+
     getch();
 }
