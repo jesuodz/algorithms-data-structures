@@ -104,4 +104,15 @@ class ArbolBinario {
             return ( r -> subArbolIzdo() ? contar_nodos( r -> subArbolIzdo() ) : 0 ) + 
                     ( r -> subArbolDcho() ? contar_nodos( r -> subArbolDcho() ) : 0 ) + 1;
         }
+
+        int obtener_altura( Nodo *r) {
+            // ADAPTADO DE: http://www.csegeek.com/csegeek/view/tutorials/algorithms/trees/tree_part3.php
+            if ( r != NULL ) {
+                int izq = obtener_altura( r -> subArbolIzdo());
+                int der = obtener_altura( r -> subArbolDcho());
+
+                return 1 + max( izq, der );
+            }
+        }
+
 };

@@ -43,4 +43,8 @@ class Nodo {
         void visitar() {
             cout << dato << " ";
         }
+
+        int nodo_max( int a, int b ) {
+            return (( a > b ) ? a : b );
+        }
 };
