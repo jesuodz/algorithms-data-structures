@@ -74,16 +74,16 @@ class ArbolBinario {
 
         void inorden( Nodo *r ) {
             if ( r != NULL ) {
-                preorden( r -> subArbolIzdo());
+                inorden( r -> subArbolIzdo());
                 r -> visitar();
-                preorden( r -> subArbolDcho());
+                inorden( r -> subArbolDcho());
             }
         }
 
         void postorden( Nodo *r ) {
             if ( r != NULL ) {
-                preorden( r -> subArbolIzdo());
-                preorden( r -> subArbolDcho());
+                postorden( r -> subArbolIzdo());
+                postorden( r -> subArbolDcho());
                 r -> visitar();
             }
         }
