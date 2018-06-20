@@ -55,10 +55,9 @@ class ColaGenerica {
             }
             return frente -> elemento;
         }
-        /*
         void mostrar() {
             NodoCola* n;
-            n = cima;
+            n = frente;
             if (n == NULL) {
                 cout << "Cola vac\241a";
             } else {
@@ -68,7 +67,6 @@ class ColaGenerica {
                 }
             }
         }
-        */
         bool colaVacia() {
             return frente == NULL;
         }
