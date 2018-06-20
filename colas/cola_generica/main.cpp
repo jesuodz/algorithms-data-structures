@@ -1,6 +1,6 @@
 #include <iostream>
 #include <conio.h>
-#include "cola_generica.cpp"
+#include "ColaGenerica.cpp"
 
 using namespace std;
 
