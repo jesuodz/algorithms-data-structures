@@ -1,9 +1,12 @@
 #include <iostream>
-#include "cola_generica.cpp"
+#include "../cola_generica/ColaGenerica.cpp"
 
 template <class T>
 class BicolaGenerica : public ColaGenerica<T> {
     public:
+        void nuevo_nodo() {
+            NodoCola* nuevo;
+        }
         void ponerFinal(T elemento) {
             insertar(elemento);
         }
@@ -18,13 +21,13 @@ class BicolaGenerica : public ColaGenerica<T> {
             frente = nuevo;
         }
         T quitarFrente() {
-            return quitar();
+            return eliminar();
         }
         T quitarFinal() {
             T aux;
             if (!bicolaVacia()) {
                 if (frente == final) {
-                    aux = quitar();
+                    aux = eliminar();
                 } else {
                     NodoCola* a = frente;
                     while (a -> siguiente != final) {
