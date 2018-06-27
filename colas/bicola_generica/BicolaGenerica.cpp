@@ -4,37 +4,34 @@
 template <class T>
 class BicolaGenerica : public ColaGenerica<T> {
     public:
-        void nuevo_nodo() {
-            NodoCola* nuevo;
-        }
         void ponerFinal(T elemento) {
-            insertar(elemento);
+            this -> insertar(elemento);
         }
         void ponerFrente(T elemento) {
-            NodoCola* nuevo;
+            typename BicolaGenerica<T>::NodoCola* nuevo;
 
-            nuevo = new NodoCola(elemento);
+            nuevo = new typename BicolaGenerica<T>::NodoCola(elemento);
             if (bicolaVacia()) {
-                final = nuevo;
+                ColaGenerica<T>::final = nuevo;
             }
-            nuevo -> siguiente = frente;
-            frente = nuevo;
+            nuevo -> siguiente = ColaGenerica<T>::frente;
+            ColaGenerica<T>::frente = nuevo;
         }
         T quitarFrente() {
-            return eliminar();
+            return this -> eliminar();
         }
         T quitarFinal() {
             T aux;
             if (!bicolaVacia()) {
-                if (frente == final) {
-                    aux = eliminar();
+                if (ColaGenerica<T>::frente == ColaGenerica<T>::final) {
+                    aux = this -> eliminar();
                 } else {
-                    NodoCola* a = frente;
-                    while (a -> siguiente != final) {
+                    typename ColaGenerica<T>::NodoCola* a = ColaGenerica<T>::frente;
+                    while (a -> siguiente != ColaGenerica<T>::final) {
                         a = a -> siguiente;
                     }
-                    aux = final -> elemento;
-                    final = a;
+                    aux = ColaGenerica<T>::final -> elemento;
+                    ColaGenerica<T>::final = a;
                     delete (a -> siguiente);
                 }
             } else {
@@ -43,26 +40,26 @@ class BicolaGenerica : public ColaGenerica<T> {
             return aux;
         }
         T frenteBicola() {
-            return frenteCola();
+            return typename ColaGenerica<T>::frenteCola();
         }
         T finalBicola() {
             if (bicolaVacia()) {
                 cout << "Error: bicola vacia" << endl;
             }
-            return (final -> elemento);
+            return (ColaGenerica<T>::final -> elemento);
         }
         bool bicolaVacia() {
-            return colaVacia();
+            return this -> colaVacia();
         }
         void borrarBicola() {
-            borrarCola();
+            typename ColaGenerica<T>::borrarCola();
         }
         int numElemsBicola() {
             int n = 0; 
-            NodoCola* a = frente;
+            typename ColaGenerica<T>::NodoCola* a = ColaGenerica<T>::frente;
             if (!bicolaVacia()) {
                 n = 1;
-                while (a != final) {
+                while (a != ColaGenerica<T>::final) {
                     n++;
                     a = a -> siguiente;
                 }
