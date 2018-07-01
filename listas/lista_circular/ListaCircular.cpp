@@ -2,38 +2,38 @@
 
 using namespace std;
 
-typedef int Dato;
-class NodoCircular {
-    private:
-        Dato dato;
-        NodoCircular* enlace;
-    public:
-        NodoCircular (Dato entrada) {
-            dato = entrada;
-            enlace = this;
-        }
-        NodoCircular* enlaceNodo() {
-            return enlace;
-        }
-        NodoCircular* ponerEnlace(NodoCircular* sgte) {
-            enlace = sgte;
-        }
-        Dato datoNodo() {
-            return dato;
-        }
-};
-
+template<class T>
 class ListaCircular {
-    private:
+    protected:
+        class NodoCircular {
+            private:
+                T dato;
+                NodoCircular* enlace;
+            public:
+                NodoCircular (T entrada) {
+                    dato = entrada;
+                    enlace = this;
+                }
+                NodoCircular* enlaceNodo() {
+                    return enlace;
+                }
+                NodoCircular* ponerEnlace(NodoCircular* sgte) {
+                    enlace = sgte;
+                }
+                T datoNodo() {
+                    return dato;
+                }
+        };
+        
         NodoCircular* lc;
     public:
         ListaCircular() {
             lc = NULL;
         }
 
-        NodoCircular* buscar(Dato entrada);
+        NodoCircular* buscar(T entrada);
 
-        void insertar(Dato entrada) {
+        void insertar(T entrada) {
             NodoCircular* nuevo;
             nuevo = new NodoCircular(entrada);
             if (lc != NULL) {
@@ -43,7 +43,7 @@ class ListaCircular {
             lc = nuevo;
         }
 
-        void eliminar(Dato entrada) {
+        void eliminar(T entrada) {
             NodoCircular* actual;
             bool encontrado = false;
 
@@ -85,7 +85,7 @@ class ListaCircular {
             }
         }
 
-        void borrarLista(Dato entrada) {
+        void borrarLista(T entrada) {
             NodoCircular* p;
             if (lc != NULL) {
                 p = lc;
