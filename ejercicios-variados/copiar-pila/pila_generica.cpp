@@ -27,12 +27,14 @@ class PilaGenerica {
             cima = nuevo;
         }
         T eliminar() {
+            NodoPila* viejo;
             if (pilaVacia()) {
                 cout << "Pila vac\241a, no se puede extraer.";
             } else {
-                T aux = cima -> elemento;
+                viejo = cima;
                 cima = cima -> siguiente;
             }
+            delete viejo;
         }
         T cimaPila() {
             if (pilaVacia()) {
@@ -44,14 +46,6 @@ class PilaGenerica {
         bool pilaVacia() {
             return cima == NULL;
         }
-        void limpiarPila() {
-            NodoPila* n;
-            while(!pilaVacia()) {
-                n = cima;
-                cima = cima -> siguiente;
-                delete n;
-            }
-        }
         void mostrar() {
             NodoPila* n;
             n = cima;
@@ -62,6 +56,11 @@ class PilaGenerica {
                     cout << n -> elemento << " | ";
                     n = n -> siguiente;
                 }
+            }
+        }
+        void limpiarPila() {
+            while(!pilaVacia()) {
+                eliminar();
             }
         }
         ~PilaGenerica() {
