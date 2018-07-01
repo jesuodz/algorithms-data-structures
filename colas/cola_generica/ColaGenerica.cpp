@@ -23,7 +23,7 @@ class ColaGenerica {
         void insertar(T elemento) {
             NodoCola* nuevo;
             nuevo = new NodoCola(elemento);
-            if (this -> colaVacia()) {
+            if (colaVacia()) {
                 frente = nuevo;
             } else {
                 final -> siguiente = nuevo;
@@ -31,7 +31,7 @@ class ColaGenerica {
             final = nuevo;
         }
         T eliminar() {
-            if (this -> colaVacia()) {
+            if (colaVacia()) {
                 cout << "Cola vac\241a, no se puede extraer." << endl;
             }
             T aux = frente -> elemento;
@@ -41,16 +41,13 @@ class ColaGenerica {
             return aux;
         }
         void borrarCola() {
-            for (; frente != NULL;) {
-                NodoCola* a;
-                a = frente;
-                frente = frente -> siguiente;
-                delete a;
+            while (frente != NULL) {
+                eliminar();
             }
             final = NULL;
         }
         T frenteCola() {
-            if ( this -> colaVacia()) {
+            if ( colaVacia()) {
                 cout << "La cola esta vac\241a" << endl;
             }
             return frente -> elemento;
