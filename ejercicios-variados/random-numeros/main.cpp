@@ -1,4 +1,5 @@
 #include "ColaCircular.cpp"
+#include "ColaGenerica.cpp"
 #include <stdlib.h>
 #include <time.h>
 #include<iostream>
@@ -15,9 +16,11 @@ int numAleatorio() {
 
 int main() {
     ColaCircular<int, nums> NRandoms;
+    ColaGenerica <int> NPrimos;
     srand(time(NULL));
-    int opcion;
+    int opcion, n;
     bool salir = false;
+
     do {
         do {
             system("cls");
