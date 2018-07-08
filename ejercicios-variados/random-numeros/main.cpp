@@ -5,7 +5,7 @@
 #include<iostream>
 #include<conio.h>
 
-const int nums = 25;
+const int nums = 100;
 
 using namespace std;
 
@@ -79,8 +79,10 @@ int main() {
                 break;
             case 3:
                 system("cls");
-                cout << "\nCola de randoms:\n";
+
+                cout << "Cola de randoms:\n";
                 NRandoms.mostrar();
+                
                 cout << "\nCola de primos:\n";
                 NPrimos.mostrar();
                 getch();

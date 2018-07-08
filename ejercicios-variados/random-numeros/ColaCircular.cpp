@@ -41,7 +41,7 @@ template <class TipoDeDato, int MAX> class ColaCircular {
             if (!colaVacia()) {
                 cout << listaCola[frente];
             } else {
-                cout << "Cola vac\124a.";
+                cout << "Cola vac\241a.";
             }
         }
         bool colaVacia() {
@@ -51,8 +51,12 @@ template <class TipoDeDato, int MAX> class ColaCircular {
             return frente == siguiente(siguiente(final));
         }
         void mostrar() {
-            for (int i = frente; i < MAX-1; i++) {
-                cout << listaCola[i] << " | ";
+            if (!colaVacia()) {
+                for (int i = frente; i < MAX-1; i++) {
+                    cout << listaCola[i] << " | ";
+                }
+            } else {
+                cout << "Cola vac\241a.";
             }
         }
 };
