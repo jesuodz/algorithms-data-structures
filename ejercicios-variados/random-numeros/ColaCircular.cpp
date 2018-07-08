@@ -51,7 +51,7 @@ template <class TipoDeDato, int MAX> class ColaCircular {
             return frente == siguiente(siguiente(final));
         }
         void mostrar() {
-            for (int i = 0; i < MAX-1; i++) {
+            for (int i = frente; i < MAX-1; i++) {
                 cout << listaCola[i] << " | ";
             }
         }
