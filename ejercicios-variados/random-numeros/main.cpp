@@ -2,11 +2,11 @@
 #include "ColaGenerica.cpp"
 #include <stdlib.h>
 #include <time.h>
-#include<iostream>
-#include<conio.h>
+#include <iostream>
+#include <conio.h>
+#include <cmath>
 
 const int nums = 100;
-
 using namespace std;
 
 int numAleatorio() {
@@ -14,22 +14,17 @@ int numAleatorio() {
     return num;
 }
 
-int chequearPrimo(int n) {
-    bool esPrimo = true;
-
-    if (n < 0) {
-        return 0;
+bool chequearPrimo(int n) {
+    if (n == 0) {
+        return false; 
     }
 
+    n = abs(n);
     for (int i = 2; i <= n / 2; ++i) {
-        if(n % i == 0) {
-            esPrimo = false;
+        if (n % i == 0) {
+            return false;
             break;
         }
-    }
-
-    if (esPrimo) {
-        return n;
     }
 }
 
@@ -67,10 +62,11 @@ int main() {
                 system("cls");
 
                 while(!NRandoms.colaVacia()) {
-                    n = chequearPrimo(NRandoms.quitar());
+                    n = NRandoms.quitar();
 
-                    if (n != 0)
+                    if (chequearPrimo(n)) {
                         NPrimos.insertar(n);
+                    }
                 }
 
                 cout << "Numeros copiados" << endl;
