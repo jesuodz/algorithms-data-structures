@@ -1,4 +1,4 @@
-# Algorithms and Data Structures - Algoritmos y Estructuras de Datos
+# Algoritmos y Estructuras de Datos - Algorithms and Data Structures
 
 Una bitácora de Algoritmos y Estructuras de datos que escribí/estudié, principalmente para la universidad.
 
