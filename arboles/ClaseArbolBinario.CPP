@@ -1,11 +1,16 @@
 #include "ClaseNodoArbol.cpp"
+#include <iostream>
+
+using namespace std;
 
 class ArbolBinario {
 	protected:
    	    Nodo *raiz;
+        int numHojas;
     public:
         ArbolBinario() { 
-            raiz = NULL; 
+            raiz = NULL;
+            numHojas = 0;
         }
 
         ArbolBinario( Nodo *r ) { 
@@ -115,4 +120,27 @@ class ArbolBinario {
             }
         }
 
+        void ordenDescABB( Nodo *r ) {
+            if ( r != NULL ) {
+                ordenDescABB( r -> subArbolDcho());
+                r -> visitar();
+                ordenDescABB( r -> subArbolIzdo());
+            }
+        }
+
+        bool esHoja(Nodo *n) {
+            return n -> subArbolDcho() == NULL && n -> subArbolIzdo() == NULL;
+        }
+
+        int contarHojas( Nodo *r ) {
+            if ( r != NULL ) {
+                contarHojas( r -> subArbolIzdo());
+                contarHojas( r -> subArbolDcho());
+                
+                if ( esHoja(r)) {
+                    numHojas += 1;
+                }
+            }
+            return numHojas;
+        }
 };
